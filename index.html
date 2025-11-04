@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>У Машки на Тимиряшке — Спорт-клуб</title>
+    
+<script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Общие стили и шрифт */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            /* ИЗМЕНЕНИЕ 1: Меняем #0d1117 на чисто черный #000000, 
+               чтобы не было видно серой полосы между nav и header */
+            background-color: #000000; 
+            color: #e5e7eb; /* Светлый текст */
+        }
+        .header-bg {
+            /* КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: Установлен локальный путь к вашей картинке */
+            background-image: url('./images/header-bg.jpg'); 
+            
+            /* ИЗМЕНЕНИЕ 2: Устанавливаем черный фон на всякий случай */
+            background-color: #000000;
+            
+            background-size: contain; 
+            background-repeat: no-repeat; 
+
+            background-position: center;
+            background-attachment: fixed; /* Эффект параллакса */
+            position: relative;
+            
+            /* ИЗМЕНЕНИЕ: Высота установлена на 44.37% от ширины (1954 / 4404 = 0.4437) */
+            padding-top: 44.37%; 
+            min-height: 300px; 
+        }
+        /* Новый стиль для фона секции "О нас" */
+        .about-bg {
+            background-image: url('./images/o-nas.jpg');
+            background-size: cover; /* Заполнение всего блока */
+            background-position: center; /* Центрирование изображения */
+            background-attachment: fixed; /* Эффект параллакса */
+            position: relative;
+            min-height: 700px; /* Минимальная высота, чтобы фон был хорошо виден */
+            display: flex; /* Для центрирования контента */
+            align-items: center; /* Центрирование по вертикали */
+            justify-content: center; /* Центрирование по горизонтали */
+            flex-direction: column; /* Элементы внутри будут располагаться в столбец */
+            padding: 5rem 1rem; /* Стандартный паддинг секции */
+        }
+        /* Оверлей для читаемости текста на фоне */
+        .about-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 17, 23, 0.7); /* Темный полупрозрачный фон */
+            z-index: 1;
+        }
+        .section-padding {
+            padding: 5rem 1rem;
+        }
+        .gradient-text {
+            /* Красивый градиент для заголовков */
+            background-image: linear-gradient(90deg, #ff007f, #00c7e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        /* Стиль для плавного перехода на якоря */
+        .smooth-scroll {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .smooth-scroll:hover {
+            color: #00c7e5; /* Цвет при наведении */
+            transform: translateY(-2px);
+        }
+        
+        /* Новый класс для центрирования содержимого карточек В Программе */
+        .program-card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%; /* Занимает всю доступную высоту */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    
+<!-- ИЗМЕНЕНИЕ 3: Удаляем bg-opacity-70 и backdrop-blur-sm, чтобы навигация стала 100% черной и слилась с body -->
+<nav class="p-6 bg-black sticky top-0 z-50 shadow-2xl border-b-2 border-red-500">
+    <div class="max-w-7xl mx-auto flex justify-center">
+        <div class="space-x-8 text-lg font-semibold">
+            <a href="#about" class="text-white hover:text-red-500 transition duration-300 smooth-scroll">О нас</a>
+            <a href="#directions" class="text-white hover:text-red-500 transition duration-300 smooth-scroll">Направления</a>
+            <a href="#trainers" class="text-white hover:text-red-500 transition duration-300 smooth-scroll">Наши тренеры</a>
+            <a href="#contacts" class="text-white hover:text-red-500 transition duration-300 smooth-scroll">Контакты</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Шапка теперь содержит только фон и следует СРАЗУ ЗА навигацией -->
+<header class="header-bg" id="home"></header>
+
+    
+
+<section id="about" class="about-bg border-b border-gray-800">
+        <div class="about-overlay"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <h2 class="text-5xl font-extrabold text-center mb-16 gradient-text">О нас</h2>
+            <div class="text-center max-w-4xl mx-auto text-xl leading-relaxed">
+                <p class="mb-6 font-bold text-3xl text-red-400">Кто мы? Мы легенда Тимирязевки!</p>
+                <p class="mb-4">И мы не будем обещать тебе кубики пресса за 3 дня или зачеты автоматом за жим сотки на грудь. Мы вообще ничего обещать не будем, кроме того, что у нас тяжело, шумно и весело... точно веселей, чем на парах по информатике)))</p>
+                
+                <h3 class="text-3xl font-bold mt-10 mb-6 gradient-text">В программе:</h3>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                    
+                    
+
+<div class="bg-gray-800 rounded-xl shadow-2xl border-t-4 border-red-500 flex-1 flex items-stretch">
+                        <div class="program-card-content p-4">
+                            <p class="text-2xl font-bold mb-2 text-white">Тренажерка</p>
+                            <p class="text-gray-300 text-sm">Тягай железо, пока тягало не устанет, чтоб одногрупницы пищали.</p>
+                        </div>
+                    </div>
+                    
+                    
+
+<div class="bg-gray-800 rounded-xl shadow-2xl border-t-4 border-red-500 flex-1 flex items-stretch">
+                        <div class="program-card-content p-4">
+                            <p class="text-2xl font-bold mb-2 text-white">Единоборства</p>
+                            <p class="text-gray-300 text-sm">Вымести злость на груше, а не на вредных преподах.</p>
+                        </div>
+                    </div>
+                    
+                    
+
+<div class="bg-gray-800 rounded-xl shadow-2xl border-t-4 border-red-500 flex-1 flex items-stretch">
+                        <div class="program-card-content p-4">
+                            <p class="text-2xl font-bold mb-2 text-white">Групповые</p>
+                            <p class="text-gray-300 text-sm">Тупо делай вид, что тебе нравится берпи, а не наша Машка.</p>
+                        </div>
+                    </div>
+                    
+                    
+
+<div class="bg-gray-800 rounded-xl shadow-2xl border-t-4 border-red-500 flex-1 flex items-stretch">
+                        <div class="program-card-content p-4">
+                            <p class="text-2xl font-bold mb-2 text-white">Кружок ПП</p>
+                            <p class="text-gray-300 text-sm">Психологическая поддержка "несправедливо" отчисленным гениям.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-10 pt-6 text-2xl font-bold text-white border-t border-gray-700">
+                    Но ты ведь все равно придешь не только за этим. Ты придешь, потому что у нас есть <span class="text-red-400">Машки и Наташки!</span> А всё это где? Правильно, на Тимиряшке! 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    
+
+<section id="directions" class="section-padding bg-black border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-5xl font-extrabold text-center mb-16 gradient-text">Направления</h2>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                
+
+<div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-500 group">
+                    <div class="h-64 overflow-hidden relative">
+                        
+
+<img src="./images/trenazherka.jpg" alt="Тренажерный зал" class="w-full h-full object-cover transition duration-500 group-hover:opacity-75">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <span class="text-4xl font-bold text-white tracking-widest uppercase">Тренажерка</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-300">Свободные веса, современные тренажеры, кардиозона. Все, что нужно, чтобы построить тело своей мечты... или просто очень устать.</p>
+                    </div>
+                </div>
+
+                
+
+<div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-500 group">
+                    <div class="h-64 overflow-hidden relative">
+                        
+
+<img src="./images/edinoborstva.jpg" alt="Единоборства" class="w-full h-full object-cover transition duration-500 group-hover:opacity-75">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <span class="text-4xl font-bold text-white tracking-widest uppercase">Единоборства</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-300">Бокс, кикбоксинг, функциональный тренинг. Направьте свою агрессию в мирное русло. Или не очень мирное. Главное — в грушу.</p>
+                    </div>
+                </div>
+
+                
+
+<div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-500 group">
+                    <div class="h-64 overflow-hidden relative">
+                        
+
+<img src="./images/gruppovye.jpg" alt="Групповые занятия" class="w-full h-full object-cover transition duration-500 group-hover:opacity-75">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <span class="text-4xl font-bold text-white tracking-widest uppercase">Групповые</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-300">Степ, TRX, йога (по желанию Машки). Смех, слезы, берпи. Отличный способ почувствовать, что вы не одни в своей боли.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+<section id="trainers" class="section-padding bg-gray-900 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-5xl font-extrabold text-center mb-16 gradient-text">Наши тренеры</h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                
+
+<div class="bg-gray-800 rounded-xl shadow-2xl p-6 text-center border-t-8 border-red-500 transform hover:shadow-red-500/50 transition duration-300">
+                    
+
+<img src="./images/igor.jpg" alt="Игорь (Тренажерка)" class="w-48 h-48 object-cover rounded-full mx-auto mb-4 border-4 border-red-500">
+                    <h3 class="text-3xl font-bold text-white">Игорь</h3>
+                    <p class="text-red-400 font-semibold mb-3">Тренажерка</p>
+                    <p class="text-gray-300 text-sm">Знает всё о железе. Почти не разговаривает. Просто показывает, какой вес брать. Спорить бесполезно.</p>
+                </div>
+
+                
+
+<div class="bg-gray-800 rounded-xl shadow-2xl p-6 text-center border-t-8 border-cyan-500 transform hover:shadow-cyan-500/50 transition duration-300">
+                    
+
+<img src="./images/masha.jpg" alt="Машка (Групповые)" class="w-48 h-48 object-cover rounded-full mx-auto mb-4 border-4 border-cyan-500">
+                    <h3 class="text-3xl font-bold text-white">Машка</h3>
+                    <p class="text-cyan-400 font-semibold mb-3">Групповые</p>
+                    <p class="text-gray-300 text-sm">Та самая. Улыбается и машет, пока вы не начнете умирать на степе. Выносливее, чем ваши оправдания.</p>
+                </div>
+
+                
+
+<div class="bg-gray-800 rounded-xl shadow-2xl p-6 text-center border-t-8 border-yellow-500 transform hover:shadow-yellow-500/50 transition duration-300">
+                    
+
+<img src="./images/kirill.jpg" alt="Кирилл (Единоборства)" class="w-48 h-48 object-cover rounded-full mx-auto mb-4 border-4 border-yellow-500">
+                    <h3 class="text-3xl font-bold text-white">Кирилл</h3>
+                    <p class="text-yellow-400 font-semibold mb-3">Единоборства</p>
+                    <p class="text-gray-300 text-sm">Научит вас бить грушу и «отдыхать» в планке так, что груша будет вам сочувствовать.</p>
+                </div>
+
+                
+
+<div class="bg-gray-800 rounded-xl shadow-2xl p-6 text-center border-t-8 border-pink-500 transform hover:shadow-pink-500/50 transition duration-300">
+                    
+
+<img src="./images/natasha.jpg" alt="Наташка (Тяга и присед)" class="w-48 h-48 object-cover rounded-full mx-auto mb-4 border-4 border-pink-500">
+                    <h3 class="text-3xl font-bold text-white">Наташка</h3>
+                    <p class="text-pink-400 font-semibold mb-3">Тяга и присед</p>
+                    <p class="text-gray-300 text-sm">Ее девиз: «Техника, техника и еще раз ягодицы!» Будет стоять над душой, пока присед не станет идеальным.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+<section id="contacts" class="section-padding bg-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-5xl font-extrabold text-center mb-16 gradient-text">Контакты и адрес</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 text-center md:text-left">
+                
+
+<div class="bg-gray-900 p-8 rounded-xl shadow-2xl">
+                    <p class="text-3xl font-bold mb-4 text-red-500">Адрес</p>
+                    <p class="text-xl text-white mb-6">Москва, Тимирязевская улица, 49 (это наш точный адрес, ищи нас в подвале!)</p>
+                    
+                    <p class="text-3xl font-bold mb-4 text-cyan-500 mt-8">Связь</p>
+                    <p class="text-xl text-white mb-2">Телефон: <a href="tel:+74955555555" class="hover:underline">+7 (495) 555-55-55</a></p>
+                    <p class="text-xl text-white">Email: <a href="mailto:timiryashka@sportclub.ru" class="hover:underline">timiryashka@sportclub.ru</a></p>
+
+                    <p class="text-base text-gray-500 mt-10">Работаем 24/7. Даже когда кажется, что закрыто — звони, Наташка всегда на месте.</p>
+                </div>
+
+                
+
+<div class="bg-gray-900 p-8 rounded-xl shadow-2xl">
+                    <p class="text-3xl font-bold mb-6 text-white">Остались вопросы? Пиши!</p>
+                    <form action="#" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <input type="text" id="name" placeholder="Твое Имя/Кличка" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-red-500 text-white placeholder-gray-500">
+                        <input type="email" id="email" placeholder="Твой Email" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-red-500 text-white placeholder-gray-500">
+                        <textarea id="message" rows="4" placeholder="Твой вопрос (будем честны, ты просто хочешь узнать про Наташку)" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-red-500 text-white placeholder-gray-500"></textarea>
+                        <button type="submit" class="w-full py-3 bg-red-500 hover:bg-red-600 rounded-lg text-white font-bold text-xl transition duration-300 shadow-lg hover:shadow-red-500/50">
+                            Отправить заявку
+                        </button>
+                    </form>
+                    
+
+<div id="message-box" class="mt-4 p-3 rounded-lg text-center font-semibold hidden transition duration-300" role="alert"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+<footer class="bg-gray-800 px-32 py-8 flex flex-col md:flex-row items-center justify-between text-gray-400">
+        <div class="text-center md:text-left md:flex-grow">
+            <p class="text-sm">&copy; 2025 У Машки на Тимиряшке. Все права защищены (кроме права спорить с тренерами).</p>
+            <p class="text-xs mt-1">Сделано на Тимиряшке, с любовью к железу и приседу.</p>
+        </div>
+        
+
+<div class="mt-8 md:mt-0 md:ml-auto">
+            <img src="./images/logo.png" alt="Логотип У Машки на Тимиряшке" class="h-16 w-auto">
+        </div>
+    </footer>
+
+    
+
+<script>
+        // Имитация отправки формы и показ сообщения
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Отменяем стандартную отправку формы
+            
+            const name = document.getElementById('name').value;
+            const messageBox = document.getElementById('message-box');
+            
+            // Скрываем и очищаем предыдущее сообщение
+            messageBox.classList.add('hidden');
+            messageBox.textContent = '';
+            
+            // Показываем сообщение об успехе
+            messageBox.textContent = `Спасибо, ${name}! Твоя заявка отправлена. Мы скоро свяжемся!`;
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('bg-green-500', 'text-white'); // Стиль успеха
+
+            // Очистка формы
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+
+            // Автоматическое скрытие сообщения через 5 секунд
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // JavaScript для плавного скролла (если браузер не поддерживает CSS scroll-behavior)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
